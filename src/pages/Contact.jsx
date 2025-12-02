@@ -10,8 +10,8 @@ const contactInfo = [
   {
     icon: FaEnvelope,
     label: 'Email',
-    value: 'kaifakhtar10@gmail.com',
-    href: 'mailto:kaifakhtar10@gmail.com',
+    value: 'kaifakhtar121@gmail.com',
+    href: 'mailto:kaifakhtar121@gmail.com',
   },
   {
     icon: FaMapMarkerAlt,
@@ -65,7 +65,7 @@ export default function Contact() {
     onSubmit: async (values) => {
       setIsSubmitting(true);
       try {
-        const response = await fetch('https://formsubmit.co/ajax/kaifakhtar10@gmail.com', {
+        const response = await fetch('https://formsubmit.co/ajax/kaifakhtar121@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
