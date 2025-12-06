@@ -183,7 +183,7 @@ export default function Home() {
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
                 <p className="text-[11px] uppercase tracking-wide text-slate-400">Location</p>
                 <p className="mt-1 flex items-center gap-1.5 font-medium text-slate-50">
-                  <MapPin className="h-3.5 w-3.5 text-cyan-400" /> Lucknow, India
+                  <MapPin className="h-3.5 w-3.5 text-cyan-400" /> Bengaluru, India
                 </p>
               </div>
             </motion.div>
