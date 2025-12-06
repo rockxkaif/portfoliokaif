@@ -49,12 +49,3 @@ This portfolio showcases my **projects, skills, and experience** in one place.
 👉 https://kaifportfoilio.netlify.app/
 
 ---
-
-## 📂 Run Locally (Optional)
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-npm install
-npm run dev
-
