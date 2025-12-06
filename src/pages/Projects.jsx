@@ -32,7 +32,7 @@ const projects = [
     description:
       'A modern React UI component library built with TypeScript, TailwindCSS, and Framer Motion. It includes animated components, gradients, effects, loaders, cards, and reusable design elements with fast performance using Vite.',
     tech: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Framer Motion', 'React Router', 'Lucide Icons'],
-    liveUrl: 'https://reactuikaif.netlify.app/',
+    liveUrl: 'https://kaifreactui.netlify.app/',
     repoUrl: 'https://github.com/rockxkaif/reactUIs',
   },
   {
@@ -40,40 +40,40 @@ const projects = [
     description:
       'An interactive Marvel universe explorer built with React. Browse characters, comics, and movies using the Marvel API. Features search functionality, favorites, and detailed character profiles.',
     tech: ['React.js', 'Marvel API', 'CSS3', 'React Router'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://marvel-explorer.netlify.app/',
+    repoUrl: 'https://github.com/yourusername/marvel-app',
   },
   {
     name: 'WeatherSphere',
     description:
       'A global weather web application that provides current conditions, 7-day forecasts, and interactive location search. Includes dynamic background visuals and detailed climate metrics per city.',
     tech: ['React.js', 'OpenWeatherMap API', 'GeoLocation', 'CSS3'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://weathersphere-demo.netlify.app/',
+    repoUrl: 'https://github.com/yourusername/weathersphere',
   },
   {
     name: 'RecipeMaster',
     description:
       'A recipe discovery platform that lets users search dishes by ingredients, cuisine, or dietary needs. Pulls recipes from an external API and shows cooking steps, nutrition, and favorites.',
     tech: ['React.js', 'Spoonacular API', 'React Router', 'Styled Components'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://recipemaster-demo.netlify.app/',
+    repoUrl: 'https://github.com/yourusername/recipemaster',
   },
   {
     name: 'TodoList',
     description:
       'A modern and intuitive todo list application built with React. Features task creation, editing, deletion, task completion tracking, local storage persistence, and a clean, responsive user interface.',
     tech: ['React.js', 'CSS3', 'Local Storage'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://todolist-app.netlify.app/',
+    repoUrl: 'https://github.com/yourusername/todolist',
   },
   {
     name: 'iCrochet',
     description:
       'A clean and minimal React website to showcase handmade crochet products, gallery, and contact form for inquiries. This project includes Home, Products, About, and Contact pages with a responsive layout.',
     tech: ['React.js', 'CSS3', 'React Router'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://icrochet.netlify.app/',
+    repoUrl: 'https://github.com/yourusername/icrochet',
   },
 ];
 
@@ -114,9 +114,8 @@ export default function Projects() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, type: 'spring', stiffness: 260, damping: 20 }}
               whileHover={{ y: -4, scale: 1.01 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
             >
               <Card className="flex h-full flex-col border-slate-800 bg-slate-900/70">
                 <CardContent className="flex h-full flex-col p-4 sm:p-5">

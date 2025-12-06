@@ -45,7 +45,7 @@ const projects = [
       "Lucide Icons"
     ],
     github: "https://github.com/rockxkaif/reactUIs",
-    live: "https://reactuikaif.netlify.app/"
+    live: "https://kaifreactui.netlify.app/"
   },
   {
     title: "Marvel webApp",
