@@ -138,20 +138,22 @@ export default function HeroSection() {
 
               {/* Action Buttons */}
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="btn-glass-primary btn-press"
-                >
-                  <FaDownload className="mr-2" />
-                  Download Resume
-                </a>
-                <a
-                  href="#contact"
-                  className="btn-glass-outline btn-press"
-                >
-                  Contact Me
-                </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="btn-glass-primary btn-press focus:outline-none focus:ring-2 focus:ring-glassAccent"
+                aria-label="Download resume PDF"
+              >
+                <FaDownload className="mr-2" aria-hidden="true" />
+                Download Resume
+              </a>
+              <a
+                href="#contact"
+                className="btn-glass-outline btn-press focus:outline-none focus:ring-2 focus:ring-glassAccent"
+                aria-label="Navigate to contact section"
+              >
+                Contact Me
+              </a>
               </motion.div>
 
               {/* Social Media Links */}
@@ -186,13 +188,14 @@ export default function HeroSection() {
               className="flex justify-center items-center"
             >
               <div className="relative w-full max-w-[180px] mx-auto profile-ring">
-                <div className="profile-ring-inner">
-                  <img
-                    src="/src/assets/ka-logo.png"
-                    alt="KA Text Logo"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+              <div className="profile-ring-inner">
+                <img
+                  src="/src/assets/ka-logo.png"
+                  alt="Kaif Ansari logo - KA initials"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
               </div>
             </motion.div>
           </div>

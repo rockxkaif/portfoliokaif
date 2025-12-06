@@ -154,6 +154,7 @@ export default function SkillsSection() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
       className="py-20"
+      aria-labelledby="skills-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -163,7 +164,7 @@ export default function SkillsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-glassTextLight mb-4">
+          <h2 id="skills-heading" className="text-4xl font-bold text-glassTextLight mb-4">
             Technical Skills
           </h2>
           <p className="text-lg text-slate-300/80 max-w-2xl mx-auto">

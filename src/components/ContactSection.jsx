@@ -110,6 +110,7 @@ export default function ContactSection() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
       className="py-20"
+      aria-labelledby="contact-heading"
     >
       <ToastContainer />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,7 +121,7 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-glassTextLight mb-4">
+          <h2 id="contact-heading" className="text-4xl font-bold text-glassTextLight mb-4">
             Get in Touch
           </h2>
           <p className="text-lg text-slate-300/80 max-w-2xl mx-auto">
@@ -211,12 +212,14 @@ export default function ContactSection() {
               <form onSubmit={formik.handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="contact-name" className="block text-sm font-medium text-slate-300 mb-1">
-                    Name
+                    Name <span className="text-red-400" aria-label="required">*</span>
                   </label>
                   <input
                     type="text"
                     id="contact-name"
                     name="name"
+                    required
+                    aria-required="true"
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -234,12 +237,14 @@ export default function ContactSection() {
 
                 <div>
                   <label htmlFor="contact-email" className="block text-sm font-medium text-slate-300 mb-1">
-                    Email
+                    Email <span className="text-red-400" aria-label="required">*</span>
                   </label>
                   <input
                     type="email"
                     id="contact-email"
                     name="email"
+                    required
+                    aria-required="true"
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -257,11 +262,13 @@ export default function ContactSection() {
 
                 <div>
                   <label htmlFor="contact-message" className="block text-sm font-medium text-slate-300 mb-1">
-                    Message
+                    Message <span className="text-red-400" aria-label="required">*</span>
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
+                    required
+                    aria-required="true"
                     value={formik.values.message}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}

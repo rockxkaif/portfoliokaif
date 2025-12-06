@@ -10,6 +10,7 @@ export default function About() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
       className="py-20"
+      aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -19,7 +20,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-glassTextLight mb-4">
+          <h2 id="about-heading" className="text-4xl font-bold text-glassTextLight mb-4">
             About Me
           </h2>
           <p className="text-lg text-slate-300/80 max-w-2xl mx-auto">

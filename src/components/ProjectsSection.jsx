@@ -115,9 +115,10 @@ function ProjectCard({ project, index }) {
           ) : (
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - Project screenshot`}
               className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
               onError={() => setImageError(true)}
+              loading="lazy"
             />
           )}
         </div>
@@ -147,17 +148,32 @@ function ProjectCard({ project, index }) {
             ))}
           </div>
 
-          <div className="flex space-x-4 mt-2">
+        <div className="flex space-x-4 mt-2">
+          {project.live && (
             <a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-glassAccent hover:text-glassGold transition-colors"
+              className="flex items-center text-glassAccent hover:text-glassGold transition-colors focus:outline-none focus:ring-2 focus:ring-glassAccent rounded"
+              aria-label={`View live demo of ${project.title}`}
             >
-              <FaExternalLinkAlt className="mr-2" />
+              <FaExternalLinkAlt className="mr-2" aria-hidden="true" />
               Live Demo
             </a>
-          </div>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-glassAccent hover:text-glassGold transition-colors focus:outline-none focus:ring-2 focus:ring-glassAccent rounded"
+              aria-label={`View source code for ${project.title} on GitHub`}
+            >
+              <FaGithub className="mr-2" aria-hidden="true" />
+              Code
+            </a>
+          )}
+        </div>
         </div>
       </div>
     </motion.div>
@@ -173,6 +189,7 @@ export default function ProjectsSection() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
       className="py-20"
+      aria-labelledby="projects-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -182,7 +199,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-glassTextLight mb-4">
+          <h2 id="projects-heading" className="text-4xl font-bold text-glassTextLight mb-4">
             My Projects
           </h2>
           <p className="text-slate-300/80">

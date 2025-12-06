@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useTheme } from '../context/ThemeContext';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
+import { NavLink, useLocation } from 'react-router-dom';
+import { Code2, Sparkles, FileDown } from 'lucide-react';
+import { Button } from './ui/button';
 import { profile } from '../data/content';
 
 const navigation = [
@@ -17,138 +15,120 @@ const navigation = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
+  const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first
+      window.location.href = '/#' + id;
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass-navbar' : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center"
-          >
-            <NavLink
-              to="/"
-              className={`text-2xl font-bold tracking-tight ${
-                scrolled
-                  ? 'text-glassTextLight hover:text-glassGold'
-                  : 'text-glassTextLight'
-              } transition-colors duration-300`}
-            >
-              Portfolio
-            </NavLink>
-          </motion.div>
-          
-          {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            {navigation.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `relative px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                      scrolled
-                        ? isActive
-                          ? 'text-glassAccent font-semibold'
-                          : 'text-slate-200 hover:text-glassAccent'
-                        : isActive
-                        ? 'text-glassTextLight'
-                        : 'text-slate-200 hover:text-glassTextLight'
-                    }`
-                  }
-                >
-                  {item.name}
-                  {({ isActive }) => isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
-                        scrolled ? 'bg-glassAccent' : 'bg-glassAccent'
-                      }`}
-                    />
-                  )}
-                </NavLink>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Mobile menu button */}
-            <div className="flex md:hidden">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                type="button"
-                className="inline-flex items-center justify-center rounded-md p-2 text-glassTextLight bg-white/5 border border-white/10 hover:text-glassAccent hover:bg-white/10"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? (
-                  <XMarkIcon className="h-6 w-6" />
-                ) : (
-                  <Bars3Icon className="h-6 w-6" />
-                )}
-              </motion.button>
-            </div>
-          </div>
+    <header className="sticky top-4 z-20 mb-6 flex items-center justify-between rounded-2xl border border-slate-800/60 bg-slate-900/60 px-4 py-3 backdrop-blur-xl sm:px-6 mx-4 sm:mx-auto max-w-6xl">
+      <div className="flex items-center gap-2">
+        <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 ring-1 ring-cyan-500/40">
+          <Code2 className="h-5 w-5 text-cyan-400" />
+        </div>
+        <div className="leading-tight">
+          <p className="text-sm font-semibold text-slate-50">{profile.name}</p>
+          <p className="text-xs text-slate-400">Full Stack / Frontend Developer</p>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900/90 backdrop-blur-glass border-t border-white/10"
+      <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 md:flex">
+        {navigation.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) =>
+              `relative transition hover:text-cyan-300 ${
+                isActive ? 'text-cyan-300' : ''
+              }`
+            }
           >
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `block px-3 py-2 text-base font-medium rounded-md ${
-                      isActive
-                        ? 'text-glassAccent bg-white/10'
-                        : 'text-slate-200 hover:text-glassTextLight hover:bg-white/5'
-                      }`
-                    }
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </NavLink>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            {item.name}
+            <span className="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-cyan-400 to-emerald-400 transition-transform duration-300 group-hover:scale-x-100" />
+          </NavLink>
+        ))}
+      </nav>
+
+      <div className="flex items-center gap-2">
+        <Button
+          size="sm"
+          variant="outline"
+          className="hidden border-cyan-500/50 bg-cyan-500/5 text-xs font-semibold text-cyan-100 hover:bg-cyan-500/20 sm:inline-flex"
+          onClick={() => {
+            if (location.pathname === '/') {
+              scrollToSection('projects');
+            } else {
+              window.location.href = '/#projects';
+            }
+          }}
+        >
+          <Sparkles className="mr-1.5 h-4 w-4" />
+          View Work
+        </Button>
+        <Button
+          size="sm"
+          className="bg-cyan-500 text-xs font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 hover:bg-cyan-400"
+          onClick={() => {
+            if (typeof window !== 'undefined') {
+              window.open('/resume.pdf', '_blank');
+            }
+          }}
+        >
+          <FileDown className="mr-1.5 h-4 w-4" />
+          Resume
+        </Button>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-300 hover:text-cyan-300 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isOpen ? (
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl border border-slate-800/60 bg-slate-900/95 backdrop-blur-xl p-4 md:hidden">
+          <div className="space-y-2">
+            {navigation.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  `block px-3 py-2 rounded-lg text-sm font-medium transition ${
+                    isActive
+                      ? 'text-cyan-300 bg-cyan-500/10'
+                      : 'text-slate-300 hover:text-cyan-300 hover:bg-slate-800'
+                  }`
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
   );
-} 
+}
