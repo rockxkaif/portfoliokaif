@@ -77,9 +77,9 @@ export default function Contact() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
+    <div className="min-h-screen bg-transparent text-slate-50">
+      <div className="neo-grid pointer-events-none fixed inset-0 -z-10" />
+      <div className="ambient-blob ambient-blob-two pointer-events-none fixed -z-10" />
       <ToastContainer />
 
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function Contact() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-4">
-            <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400" />
+            <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-300 to-violet-400" />
             <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Contact</h1>
           </div>
           <p className="text-sm leading-relaxed text-slate-300 sm:text-base max-w-3xl">
@@ -107,7 +107,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="space-y-6"
           >
-            <Card className="border-slate-800 bg-slate-900/70">
+            <Card className="border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
               <CardContent className="p-4 sm:p-5">
                 <h3 className="text-lg font-semibold text-slate-50 mb-4">Contact Information</h3>
                 <div className="space-y-4">
@@ -119,7 +119,7 @@ export default function Contact() {
                       <div className="text-xs text-slate-400">Email</div>
                       <a
                         href={profile.socialLinks.find((l) => l.name === 'Email')?.url || '#'}
-                        className="text-sm text-slate-50 hover:text-cyan-300 transition-colors"
+                        className="text-sm text-slate-50 hover:text-cyan-200 transition-colors"
                       >
                         {profile.socialLinks.find((l) => l.name === 'Email')?.url.replace('mailto:', '')}
                       </a>
@@ -138,7 +138,7 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border-slate-800 bg-slate-900/70">
+            <Card className="border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
               <CardContent className="p-4 sm:p-5">
                 <h3 className="text-lg font-semibold text-slate-50 mb-4">Connect with Me</h3>
                 <div className="flex gap-3">
@@ -176,7 +176,7 @@ export default function Contact() {
             variants={fadeUp}
             transition={{ delay: 0.2 }}
           >
-            <Card className="border-slate-800 bg-slate-900/70">
+            <Card className="border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
               <CardContent className="p-4 sm:p-5">
                 <h3 className="text-lg font-semibold text-slate-50 mb-4">Send a Message</h3>
                 <form onSubmit={formik.handleSubmit} className="space-y-4">
