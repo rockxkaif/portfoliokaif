@@ -10,9 +10,9 @@ const fadeUp = {
 
 export default function Experience() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
+    <div className="min-h-screen bg-transparent text-slate-50">
+      <div className="neo-grid pointer-events-none fixed inset-0 -z-10" />
+      <div className="ambient-blob ambient-blob-two pointer-events-none fixed -z-10" />
 
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
         <motion.div
@@ -23,7 +23,7 @@ export default function Experience() {
         >
           <div className="flex items-center justify-between gap-2 mb-4">
             <div className="flex items-center gap-2">
-              <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400" />
+              <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-300 to-violet-400" />
               <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Experience</h1>
             </div>
             <span className="text-xs text-slate-400">Professional journey & achievements</span>
@@ -46,11 +46,11 @@ export default function Experience() {
               <div className="absolute -left-5 top-2 flex h-3.5 w-3.5 items-center justify-center rounded-full border border-cyan-400 bg-slate-950 sm:-left-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               </div>
-              <Card className="border-slate-800 bg-slate-900/70">
+              <Card className="border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
                 <CardContent className="p-4 sm:p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-cyan-300">{exp.company}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-cyan-200">{exp.company}</p>
                       <p className="text-sm font-medium text-slate-50">{exp.title}</p>
                     </div>
                     <div className="text-right text-xs text-slate-400">
@@ -73,7 +73,7 @@ export default function Experience() {
                       {exp.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full bg-slate-900/90 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-700"
+                          className="rounded-full bg-white/[0.035] px-2 py-1 text-[10px] text-slate-300 ring-1 ring-white/[0.08]"
                         >
                           {tech}
                         </span>
