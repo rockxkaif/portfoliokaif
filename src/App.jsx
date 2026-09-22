@@ -31,12 +31,12 @@ function AppRoutes() {
   );
 }
 
-export default function App() {
+function App() {
   return (
     <ThemeProvider>
-      <div id="top" className="min-h-screen bg-transparent">
+      <div className="min-h-screen bg-slate-950 transition-colors duration-300">
         <Navbar />
-        <main className="min-h-[70vh]" role="main">
+        <main className="flex-grow" role="main">
           <AppRoutes />
         </main>
         <Footer />
@@ -44,3 +44,5 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
+export default App;

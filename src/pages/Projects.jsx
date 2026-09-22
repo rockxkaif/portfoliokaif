@@ -84,9 +84,9 @@ const fadeUp = {
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-transparent text-slate-50">
-      <div className="neo-grid pointer-events-none fixed inset-0 -z-10" />
-      <div className="ambient-blob ambient-blob-two pointer-events-none fixed -z-10" />
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
 
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
         <motion.div
@@ -97,7 +97,7 @@ export default function Projects() {
         >
           <div className="flex items-center justify-between gap-2 mb-4">
             <div className="flex items-center gap-2">
-              <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-300 to-violet-400" />
+              <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400" />
               <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Projects</h1>
             </div>
             <span className="text-xs text-slate-400">Built with production-quality practices</span>
@@ -117,11 +117,11 @@ export default function Projects() {
               transition={{ delay: index * 0.1, type: 'spring', stiffness: 260, damping: 20 }}
               whileHover={{ y: -4, scale: 1.01 }}
             >
-              <Card className="flex h-full flex-col border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
+              <Card className="flex h-full flex-col border-slate-800 bg-slate-900/70">
                 <CardContent className="flex h-full flex-col p-4 sm:p-5">
                   <div className="mb-3 flex items-start justify-between gap-2">
                     <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-wide text-cyan-200">Featured Project</p>
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-cyan-300">Featured Project</p>
                       <h3 className="text-sm font-semibold text-slate-50 sm:text-[15px]">{project.name}</h3>
                     </div>
                   </div>
@@ -130,13 +130,13 @@ export default function Projects() {
                     {project.tech.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-white/[0.035] px-2 py-1 text-[10px] text-slate-300 ring-1 ring-white/[0.08]"
+                        className="rounded-full bg-slate-900/90 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-700"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold text-cyan-200">
+                  <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold text-cyan-300">
                     {project.liveUrl && project.liveUrl !== '#' && (
                       <>
                         <button
