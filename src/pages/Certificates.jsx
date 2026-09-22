@@ -10,9 +10,9 @@ const fadeUp = {
 
 export default function Certificates() {
   return (
-    <div className="min-h-screen bg-transparent text-slate-50">
-      <div className="neo-grid pointer-events-none fixed inset-0 -z-10" />
-      <div className="ambient-blob ambient-blob-two pointer-events-none fixed -z-10" />
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
 
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
         <motion.div
@@ -22,7 +22,7 @@ export default function Certificates() {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-4">
-            <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-300 to-violet-400" />
+            <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400" />
             <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Certificates</h1>
           </div>
           <p className="text-sm leading-relaxed text-slate-300 sm:text-base max-w-3xl">
@@ -40,7 +40,7 @@ export default function Certificates() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4, scale: 1.01 }}
             >
-              <Card className="flex h-full flex-col border-white/[0.07] bg-white/[0.025] backdrop-blur-xl">
+              <Card className="flex h-full flex-col border-slate-800 bg-slate-900/70">
                 <CardContent className="flex h-full flex-col p-4 sm:p-5">
                   <div className="flex items-start justify-between mb-3">
                     <div className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
@@ -57,7 +57,7 @@ export default function Certificates() {
                         href={cert.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-cyan-400 hover:text-cyan-200 transition-colors"
+                        className="text-cyan-400 hover:text-cyan-300 transition-colors"
                         aria-label={`View ${cert.title} certificate`}
                       >
                         <ExternalLink className="h-4 w-4" />
@@ -65,7 +65,7 @@ export default function Certificates() {
                     )}
                   </div>
                   <h3 className="text-lg font-semibold text-slate-50 mb-2">{cert.title}</h3>
-                  <p className="text-xs text-cyan-200 mb-2">
+                  <p className="text-xs text-cyan-300 mb-2">
                     {cert.issuer} · {cert.date}
                   </p>
                   <p className="text-sm text-slate-300 leading-relaxed flex-1">{cert.description}</p>
