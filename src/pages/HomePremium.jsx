@@ -1,4 +1,4 @@
-import HeroSection from '../components/HeroSection';
+import PortfolioHero from '../components/PortfolioHero';
 import About from '../components/About';
 import SkillsSection from '../components/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection';
@@ -6,8 +6,8 @@ import ContactSection from '../components/ContactSection';
 
 export default function HomePremium() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      <HeroSection />
+    <div className="portfolio-page premium-page">
+      <div className="page-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><PortfolioHero /></div>
       <About />
       <SkillsSection />
       <ProjectsSection />
@@ -15,4 +15,5 @@ export default function HomePremium() {
     </div>
   );
 }
+
 

@@ -16,6 +16,12 @@ const navigation = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    const close = (event) => { if (event.key === 'Escape') setIsOpen(false); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
 
   const scrollToSection = (id) => {
     if (location.pathname !== '/') {
@@ -30,7 +36,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-4 z-20 mb-6 flex items-center justify-between rounded-2xl border border-slate-800/60 bg-slate-900/60 px-4 py-3 backdrop-blur-xl sm:px-6 mx-4 sm:mx-auto max-w-6xl">
+    <header className="portfolio-nav sticky top-4 z-20 mb-6 flex items-center justify-between rounded-2xl border border-slate-800/60 bg-slate-900/60 px-4 py-3 backdrop-blur-xl sm:px-6 mx-4 sm:mx-auto max-w-6xl">
       <div className="flex items-center gap-2">
         <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 ring-1 ring-cyan-500/40">
           <Code2 className="h-5 w-5 text-cyan-400" />
@@ -92,6 +98,8 @@ export default function Navbar() {
           type="button"
           className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-300 hover:text-cyan-300 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
           {isOpen ? (
@@ -108,7 +116,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl border border-slate-800/60 bg-slate-900/95 backdrop-blur-xl p-4 md:hidden">
+        <div id="mobile-navigation" className="absolute top-full left-0 right-0 mt-2 rounded-2xl border border-slate-800/60 bg-slate-900/95 backdrop-blur-xl p-4 md:hidden">
           <div className="space-y-2">
             {navigation.map((item) => (
               <NavLink
@@ -132,3 +140,4 @@ export default function Navbar() {
     </header>
   );
 }
+

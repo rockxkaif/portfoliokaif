@@ -4,6 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import App from './App';
 import './index.css';
+import './glass.css';
+import './liquid.css';
+import './cinematic.css';
+import './clear-glass.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

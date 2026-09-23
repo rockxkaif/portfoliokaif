@@ -1,8 +1,9 @@
-import React from 'react';
+import useDepth from './useDepth';
 
 export function Card({ children, className = '' }) {
+  const ref = useDepth();
   return (
-    <div className={`border-slate-800 bg-slate-900/70 rounded-2xl ${className}`}>
+    <div ref={ref} className={`depth-card ${className}`}>
       {children}
     </div>
   );
@@ -10,7 +11,7 @@ export function Card({ children, className = '' }) {
 
 export function CardContent({ children, className = '' }) {
   return (
-    <div className={`p-4 sm:p-5 ${className}`}>
+    <div className={`depth-content p-4 sm:p-5 ${className}`}>
       {children}
     </div>
   );

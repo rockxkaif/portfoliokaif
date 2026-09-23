@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import HomePremium from './pages/HomePremium';
@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import Projects from './pages/Projects';
 import AnimatedPage from './components/AnimatedPage';
+import LiquidGlassEffects from './components/LiquidGlassEffects';
 
 function AppRoutes() {
   const location = useLocation();
@@ -34,13 +35,17 @@ function AppRoutes() {
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-slate-950 transition-colors duration-300">
+      <MotionConfig reducedMotion="user">
+      <div className="portfolio-shell">
+        <LiquidGlassEffects />
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
-        <main className="flex-grow" role="main">
+        <main id="main-content" className="flex-grow" role="main">
           <AppRoutes />
         </main>
         <Footer />
       </div>
+    </MotionConfig>
     </ThemeProvider>
   );
 }

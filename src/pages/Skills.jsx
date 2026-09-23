@@ -17,17 +17,15 @@ const skills = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 0 },
   visible: { opacity: 1, y: 0 },
 };
 
 export default function Skills() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
+    <div className="portfolio-page page-skills text-slate-50">
 
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
+      <div className="page-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -39,7 +37,7 @@ export default function Skills() {
               <div className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400" />
               <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">Skills</h1>
             </div>
-            <span className="text-xs text-slate-400">Crafted for full-stack, frontend & backend roles</span>
+            <span className="text-sm text-slate-400">Crafted for full-stack, frontend & backend roles</span>
           </div>
           <p className="text-sm leading-relaxed text-slate-300 sm:text-base max-w-3xl">
             A comprehensive overview of my technical expertise and proficiency levels across various technologies and tools.
@@ -57,12 +55,12 @@ export default function Skills() {
             >
               <Card className="border-slate-800 bg-slate-900/70">
                 <CardContent className="p-4 sm:p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-cyan-300">{group.category}</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-cyan-300">{group.category}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-slate-700 bg-slate-900/80 px-2.5 py-1 text-[11px] text-slate-200"
+                        className="rounded-full border border-slate-700 bg-slate-900/80 px-2.5 py-1 text-sm text-slate-200"
                       >
                         {item}
                       </span>
@@ -114,12 +112,12 @@ export default function Skills() {
               >
                 <Card className="border-slate-800 bg-slate-900/70">
                   <CardContent className="p-4 sm:p-5">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-cyan-300 mb-3">{category.title}</p>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-cyan-300 mb-3">{category.title}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {category.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-slate-700 bg-slate-900/80 px-2.5 py-1 text-[11px] text-slate-200"
+                          className="rounded-full border border-slate-700 bg-slate-900/80 px-2.5 py-1 text-sm text-slate-200"
                         >
                           {item}
                         </span>
@@ -135,3 +133,4 @@ export default function Skills() {
     </div>
   );
 }
+

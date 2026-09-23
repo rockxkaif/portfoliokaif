@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
 });
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 0 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -77,12 +77,10 @@ export default function Contact() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
+    <div className="portfolio-page page-contact text-slate-50">
       <ToastContainer />
 
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
+      <div className="page-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -116,7 +114,7 @@ export default function Contact() {
                       <Mail className="h-5 w-5 text-cyan-400" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400">Email</div>
+                      <div className="text-sm text-slate-400">Email</div>
                       <a
                         href={profile.socialLinks.find((l) => l.name === 'Email')?.url || '#'}
                         className="text-sm text-slate-50 hover:text-cyan-300 transition-colors"
@@ -130,7 +128,7 @@ export default function Contact() {
                       <MapPin className="h-5 w-5 text-cyan-400" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400">Location</div>
+                      <div className="text-sm text-slate-400">Location</div>
                       <div className="text-sm text-slate-50">Bengaluru, Karnataka, India</div>
                     </div>
                   </div>
@@ -262,3 +260,4 @@ export default function Contact() {
     </div>
   );
 }
+
