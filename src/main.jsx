@@ -5,6 +5,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import App from './App';
 import './index.css';
 import './glass.css';
+import './liquid.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,4 +16,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Router>
   </React.StrictMode>
 );
-

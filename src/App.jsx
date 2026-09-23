@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import Projects from './pages/Projects';
 import AnimatedPage from './components/AnimatedPage';
+import LiquidGlassEffects from './components/LiquidGlassEffects';
 
 function AppRoutes() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
     <ThemeProvider>
       <MotionConfig reducedMotion="user">
       <div className="portfolio-shell">
+        <LiquidGlassEffects />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
         <main id="main-content" className="flex-grow" role="main">
@@ -49,4 +51,3 @@ function App() {
 }
 
 export default App;
-
