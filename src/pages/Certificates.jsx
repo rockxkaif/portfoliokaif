@@ -4,17 +4,15 @@ import { Card, CardContent } from '../components/ui/card';
 import { certificates } from '../data/content';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 0 },
   visible: { opacity: 1, y: 0 },
 };
 
 export default function Certificates() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-cyan-500/15 via-transparent to-transparent blur-3xl" />
+    <div className="portfolio-page page-certificates text-slate-50">
 
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 pt-24 sm:px-6 lg:px-8">
+      <div className="page-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -38,7 +36,7 @@ export default function Certificates() {
               animate="visible"
               variants={fadeUp}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -4, scale: 1.01 }}
+              
             >
               <Card className="flex h-full flex-col border-slate-800 bg-slate-900/70">
                 <CardContent className="flex h-full flex-col p-4 sm:p-5">
@@ -65,7 +63,7 @@ export default function Certificates() {
                     )}
                   </div>
                   <h3 className="text-lg font-semibold text-slate-50 mb-2">{cert.title}</h3>
-                  <p className="text-xs text-cyan-300 mb-2">
+                  <p className="text-sm text-cyan-300 mb-2">
                     {cert.issuer} · {cert.date}
                   </p>
                   <p className="text-sm text-slate-300 leading-relaxed flex-1">{cert.description}</p>
@@ -78,3 +76,4 @@ export default function Certificates() {
     </div>
   );
 }
+

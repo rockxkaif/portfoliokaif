@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import HomePremium from './pages/HomePremium';
@@ -34,15 +34,19 @@ function AppRoutes() {
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-slate-950 transition-colors duration-300">
+      <MotionConfig reducedMotion="user">
+      <div className="portfolio-shell">
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
-        <main className="flex-grow" role="main">
+        <main id="main-content" className="flex-grow" role="main">
           <AppRoutes />
         </main>
         <Footer />
       </div>
+    </MotionConfig>
     </ThemeProvider>
   );
 }
 
 export default App;
+

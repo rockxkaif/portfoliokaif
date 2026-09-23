@@ -26,7 +26,7 @@ export function Button({
     lg: 'px-5 py-2.5 text-sm',
   };
 
-  const cls = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+  const cls = `glass-button glass-button-${variant} ${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     return (
@@ -52,3 +52,4 @@ export function Button({
     </button>
   );
 }
+
